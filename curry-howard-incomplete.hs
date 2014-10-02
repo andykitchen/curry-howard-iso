@@ -7,6 +7,9 @@ type Not a = a -> False
 
 data a :<->: b = Bi { forward :: (a -> b), backward :: (b -> a) }
 
+lhs :: a :/\: b -> a
+rhs :: a :/\: b -> b
+
 lhs (a :/\: _) = undefined
 rhs (_ :/\: b) = undefined
 
@@ -101,10 +104,10 @@ no_true_scottsman
     lemma6 = undefined
 
     lemma7 :: Not WearKilt -> False
-    lemma7 f = undefined
+    lemma7 = undefined
 
     lemma8 :: Not Scottish -> Not WearKilt
-    lemma8 f kilt = undefined
+    lemma8 = undefined
 
     lemma9 :: Not Scottish -> False
     lemma9 = undefined
@@ -119,9 +122,30 @@ rule4 :: Scottish :<->: GoOutSunday
 rule5 :: WearKilt -> Scottish :/\: Married
 rule6 :: Scottish -> WearKilt
 
+lemma1 :: Scottish -> Married
+lemma2 :: Scottish -> Not GoOutSunday
+lemma3 :: Scottish -> GoOutSunday
+lemma4 :: Not Scottish
+lemma5 :: RedSocks
+lemma6 :: WearKilt :\/: False
+lemma7 :: Not WearKilt -> False
+lemma8 :: Not Scottish -> Not WearKilt
+lemma9 :: Not Scottish -> False
+
+
 rule1 = undefined
 rule2 = undefined
 rule3 = undefined
 rule4 = undefined
 rule5 = undefined
 rule6 = undefined
+
+lemma1 = undefined
+lemma2 = undefined
+lemma3 = undefined
+lemma4 = undefined
+lemma5 = undefined
+lemma6 = undefined
+lemma7 = undefined
+lemma8 = undefined
+lemma9 = undefined

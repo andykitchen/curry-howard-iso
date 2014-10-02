@@ -7,6 +7,9 @@ type Not a = a -> False
 
 data a :<->: b = Bi { forward :: (a -> b), backward :: (b -> a) }
 
+lhs :: a :/\: b -> a
+rhs :: a :/\: b -> b
+
 lhs (a :/\: _) = a
 rhs (_ :/\: b) = b
 
