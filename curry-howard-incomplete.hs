@@ -7,58 +7,58 @@ type Not a = a -> False
 
 data a :<->: b = Bi { forward :: (a -> b), backward :: (b -> a) }
 
-lhs (a :/\: _) = a
-rhs (_ :/\: b) = b
+lhs (a :/\: _) = undefined
+rhs (_ :/\: b) = undefined
 
 and_commute :: a :/\: b -> b :/\: a
-and_commute (p :/\: q) = (q :/\: p)
+and_commute (p :/\: q) = undefined
 
 or_commute :: a :\/: b -> b :\/: a
-or_commute (L p) = R p
-or_commute (R q) = L q
+or_commute (L p) = undefined
+or_commute (R q) = undefined
 
 and_assoc :: a :/\: (b :/\: c) -> (a :/\: b) :/\: c
-and_assoc (p :/\: (q :/\: r)) = (p :/\: q) :/\: r
+and_assoc (p :/\: (q :/\: r)) = undefined
 
 or_assoc :: a :\/: (b :\/: c) -> (a :\/: b) :\/: c
-or_assoc (L p) = L (L p)
-or_assoc (R (L q)) = L (R q)
-or_assoc (R (R r)) = R r
+or_assoc (L p) = undefined
+or_assoc (R (L q)) = undefined
+or_assoc (R (R r)) = undefined
 
 modus_ponens :: a -> (a -> b) -> b
-modus_ponens p f = f p
+modus_ponens p f = undefined
 
 and_idempotent :: a :/\: a -> a
-and_idempotent (p :/\: _) = p 
+and_idempotent (p :/\: _) = undefined
 
 or_idempotent :: a :\/: a -> a
-or_idempotent (L p) = p
-or_idempotent (R p) = p
+or_idempotent (L p) = undefined
+or_idempotent (R p) = undefined
 
 and_distributes :: a :/\: (b :\/: c) -> (a :/\: b) :\/: (a :/\: c)
-and_distributes (p :/\: L q) = L (p :/\: q)
-and_distributes (p :/\: R r) = R (p :/\: r)
+and_distributes (p :/\: L q) = undefined
+and_distributes (p :/\: R r) = undefined
 
 or_distributes :: a :\/: (b :/\: c) -> (a :\/: b) :/\: (a :\/: c)
-or_distributes (L p)          = L p :/\: L p
-or_distributes (R (q :/\: r)) = R q :/\: R r
+or_distributes (L p)          = undefined
+or_distributes (R (q :/\: r)) = undefined
 
 contrapositive :: (a -> b) -> (Not b -> Not a)
-contrapositive f g = g . f
+contrapositive f g = undefined
 
 demorgan1 :: Not a :\/: Not b -> Not (a :/\: b)
-demorgan1 (L f) (p :/\: q) = f p
-demorgan1 (R g) (p :/\: q) = g q
+demorgan1 (L f) (p :/\: q) = undefined
+demorgan1 (R g) (p :/\: q) = undefined
 
 demorgan2a :: Not a :/\: Not b -> Not (a :\/: b)
-demorgan2a (f :/\: g) (L p) = f p
-demorgan2a (f :/\: g) (R q) = g q
+demorgan2a (f :/\: g) (L p) = undefined
+demorgan2a (f :/\: g) (R q) = undefined
 
 demorgan2b :: Not (a :\/: b) -> Not a :/\: Not b
-demorgan2b f = (f . L) :/\: (f . R)
+demorgan2b f = undefined
 
 demorgan2 :: Not a :/\: Not b :<->: Not (a :\/: b)
-demorgan2 = Bi { forward = demorgan2a, backward = demorgan2b }
+demorgan2 = undefined
 
 data Scottish    = Scottish
 data RedSocks    = RedSocks
@@ -83,34 +83,45 @@ no_true_scottsman
   rule5
   rule6 = let
     lemma1 :: Scottish -> Married
-    lemma1 = rhs . rule5 . rule6
+    lemma1 = undefined
 
     lemma2 :: Scottish -> Not GoOutSunday
-    lemma2 = rule3 . lemma1
+    lemma2 = undefined
 
     lemma3 :: Scottish -> GoOutSunday
-    lemma3 = forward rule4
+    lemma3 = undefined
 
     lemma4 :: Not Scottish
-    lemma4 scottish = modus_ponens (lemma3 scottish) (lemma2 scottish)
+    lemma4 scottish = undefined
 
     lemma5 :: RedSocks
-    lemma5 = rule1 lemma4
+    lemma5 = undefined
 
     lemma6 :: WearKilt :\/: False
-    lemma6 = case rule2 of
-      L kilt -> L kilt
-      R f    -> R (f lemma5)
+    lemma6 = undefined
 
     lemma7 :: Not WearKilt -> False
-    lemma7 f = case lemma6 of
-      L kilt  -> f kilt
-      R false -> false
+    lemma7 f = undefined
 
     lemma8 :: Not Scottish -> Not WearKilt
-    lemma8 f kilt = f (lhs (rule5 kilt))
+    lemma8 f kilt = undefined
 
     lemma9 :: Not Scottish -> False
-    lemma9 = lemma7 . lemma8
+    lemma9 = undefined
 
-    in lemma9 lemma4
+    in undefined
+
+
+rule1 :: Not Scottish -> RedSocks
+rule2 :: WearKilt :\/: Not RedSocks
+rule3 :: Married -> Not GoOutSunday
+rule4 :: Scottish :<->: GoOutSunday
+rule5 :: WearKilt -> Scottish :/\: Married
+rule6 :: Scottish -> WearKilt
+
+rule1 = undefined
+rule2 = undefined
+rule3 = undefined
+rule4 = undefined
+rule5 = undefined
+rule6 = undefined
