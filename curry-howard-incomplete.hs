@@ -14,51 +14,43 @@ lhs (a :/\: _) = undefined
 rhs (_ :/\: b) = undefined
 
 and_commute :: a :/\: b -> b :/\: a
-and_commute (p :/\: q) = undefined
+and_commute = undefined
 
 or_commute :: a :\/: b -> b :\/: a
-or_commute (L p) = undefined
-or_commute (R q) = undefined
+or_commute = undefined
 
 and_assoc :: a :/\: (b :/\: c) -> (a :/\: b) :/\: c
-and_assoc (p :/\: (q :/\: r)) = undefined
+and_assoc = undefined
 
 or_assoc :: a :\/: (b :\/: c) -> (a :\/: b) :\/: c
-or_assoc (L p) = undefined
-or_assoc (R (L q)) = undefined
-or_assoc (R (R r)) = undefined
+or_assoc = undefined
 
 modus_ponens :: a -> (a -> b) -> b
-modus_ponens p f = undefined
+modus_ponens = undefined
 
 and_idempotent :: a :/\: a -> a
-and_idempotent (p :/\: _) = undefined
+and_idempotent = undefined
 
 or_idempotent :: a :\/: a -> a
-or_idempotent (L p) = undefined
-or_idempotent (R p) = undefined
+or_idempotent = undefined
 
 and_distributes :: a :/\: (b :\/: c) -> (a :/\: b) :\/: (a :/\: c)
-and_distributes (p :/\: L q) = undefined
-and_distributes (p :/\: R r) = undefined
+and_distributes = undefined
 
 or_distributes :: a :\/: (b :/\: c) -> (a :\/: b) :/\: (a :\/: c)
-or_distributes (L p)          = undefined
-or_distributes (R (q :/\: r)) = undefined
+or_distributes = undefined
 
 contrapositive :: (a -> b) -> (Not b -> Not a)
-contrapositive f g = undefined
+contrapositive = undefined
 
 demorgan1 :: Not a :\/: Not b -> Not (a :/\: b)
-demorgan1 (L f) (p :/\: q) = undefined
-demorgan1 (R g) (p :/\: q) = undefined
+demorgan1 = undefined
 
 demorgan2a :: Not a :/\: Not b -> Not (a :\/: b)
-demorgan2a (f :/\: g) (L p) = undefined
-demorgan2a (f :/\: g) (R q) = undefined
+demorgan2a = undefined
 
 demorgan2b :: Not (a :\/: b) -> Not a :/\: Not b
-demorgan2b f = undefined
+demorgan2b = undefined
 
 demorgan2 :: Not a :/\: Not b :<->: Not (a :\/: b)
 demorgan2 = undefined
