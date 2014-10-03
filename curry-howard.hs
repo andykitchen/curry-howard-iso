@@ -5,13 +5,16 @@ data a :\/: b = L a | R b
 data False
 type Not a = a -> False
 
-data a :<->: b = Bi { forward :: (a -> b), backward :: (b -> a) }
+data a :<->: b = Bi {
+  forward :: (a -> b),
+  backward :: (b -> a)
+}
 
 lhs :: a :/\: b -> a
 rhs :: a :/\: b -> b
 
-lhs (a :/\: _) = a
-rhs (_ :/\: b) = b
+lhs (p :/\: _) = p
+rhs (_ :/\: q) = q
 
 and_commute :: a :/\: b -> b :/\: a
 and_commute (p :/\: q) = (q :/\: p)
